@@ -1,0 +1,684 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work — Macdcreator</title>
+  <meta name="description" content="Selected case studies from Macdonald Opara — St.Cassie, likes.ng, and Negoncare.">
+
+  <script>document.documentElement.classList.add('js-ready')</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:           #080808;
+      --bg-raised:    #0E0E0E;
+      --bg-card:      #131313;
+      --bg-card-h:    #181818;
+      --border:       rgba(255,255,255,0.07);
+      --border-h:     rgba(255,255,255,0.14);
+      --gold:         #7070ff;
+      --gold-bright:  #8a8aff;
+      --gold-dim:     rgba(112,112,255,0.12);
+      --gold-ring:    rgba(112,112,255,0.22);
+      --white:        #FFFFFF;
+      --white-2:      #D4D4D4;
+      --muted:        #888888;
+      --muted-2:      #555555;
+      --ff-display:   'Archivo', sans-serif;
+      --ff-body:      'Space Grotesk', sans-serif;
+      --ease:         cubic-bezier(0.4,0,0.2,1);
+      --ease-out:     cubic-bezier(0,0,0.2,1);
+      --ease-spring:  cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--white); font-family: var(--ff-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1000; opacity: 0.5; }
+
+    /* NAV */
+    .nav { position: fixed; top: 16px; left: 50%; transform: translateX(-50%); width: calc(100% - 40px); max-width: 1140px; height: 52px; background: rgba(8,8,8,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border: 1px solid var(--border); border-radius: 100px; display: flex; align-items: center; justify-content: space-between; padding: 0 6px 0 22px; z-index: 900; transition: border-color 0.3s var(--ease), background 0.3s var(--ease); }
+    .nav.scrolled { border-color: var(--border-h); background: rgba(8,8,8,0.95); }
+    .nav-logo { font-family: var(--ff-display); font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); text-decoration: none; flex-shrink: 0; }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links a { font-family: var(--ff-body); font-size: 14px; font-weight: 400; color: var(--muted); text-decoration: none; padding: 7px 15px; border-radius: 100px; transition: color 0.2s var(--ease), background 0.2s var(--ease); white-space: nowrap; }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+    .nav-links a.active { color: var(--white); }
+    .nav-cta { background: var(--gold) !important; color: #fff !important; font-weight: 600 !important; padding: 8px 20px !important; font-size: 13px !important; transition: background 0.2s var(--ease), transform 0.15s var(--ease-spring) !important; }
+    .nav-cta:hover { background: var(--gold-bright) !important; transform: scale(1.03) !important; color: #fff !important; }
+    .nav-burger { display: none; flex-direction: column; gap: 4.5px; background: none; border: none; cursor: pointer; padding: 10px 12px; }
+    .nav-burger span { display: block; width: 20px; height: 1.5px; background: var(--white); border-radius: 2px; }
+
+    /* MOBILE MENU */
+    .mobile-menu { display: none; position: fixed; inset: 0; background: rgba(8,8,8,0.97); backdrop-filter: blur(28px); z-index: 800; flex-direction: column; align-items: center; justify-content: center; gap: 40px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--ff-display); font-size: clamp(36px, 10vw, 64px); font-weight: 800; letter-spacing: -0.03em; color: var(--muted-2); text-decoration: none; transition: color 0.2s; line-height: 1; }
+    .mobile-menu a:hover { color: var(--white); }
+    .mobile-close { position: absolute; top: 24px; right: 24px; background: rgba(255,255,255,0.07); border: 1px solid var(--border); border-radius: 100px; color: var(--white); cursor: pointer; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: background 0.2s; }
+    .mobile-close:hover { background: rgba(255,255,255,0.12); }
+
+    /* REVEALS */
+    .js-ready .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out); }
+    .js-ready .reveal.visible { opacity: 1; transform: none; }
+    .js-ready .reveal-left { opacity: 0; transform: translateX(-24px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); }
+    .js-ready .reveal-left.visible { opacity: 1; transform: none; }
+    .js-ready .reveal-scale { opacity: 0; transform: scale(0.96); transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out); }
+    .js-ready .reveal-scale.visible { opacity: 1; transform: none; }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 30px; border-radius: 100px; font-family: var(--ff-body); font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; border: none; transition: all 0.2s var(--ease); white-space: nowrap; }
+    .btn-primary {background: var(--gold);color: #fff; }
+    .btn-primary:hover { background: var(--gold-bright); transform: translateY(-2px); box-shadow: 0 12px 32px var(--gold-dim); }
+    .btn-ghost { background: rgba(255,255,255,0.05); color: var(--white); border: 1px solid var(--border); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.09); border-color: var(--border-h); transform: translateY(-2px); }
+    .btn-sm { padding: 9px 20px; font-size: 13px; }
+
+    /* SECTION LABEL */
+    .section-label { font-family: var(--ff-body); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+
+    /* PAGE HEADER */
+    .page-header { padding: 160px 24px 80px; max-width: 1140px; margin: 0 auto; position: relative; }
+    .page-header-glow { position: absolute; top: 0; right: -80px; width: 500px; height: 400px; background: radial-gradient(ellipse, rgba(112,112,255,0.06) 0%, transparent 65%); pointer-events: none; }
+    .page-heading { font-family: var(--ff-display); font-size: clamp(42px, 7vw, 96px); font-weight: 800; letter-spacing: -0.04em; line-height: 0.95; color: var(--white); max-width: 800px; }
+    .page-heading em { font-style: italic; color: var(--gold); font-weight: 300; }
+
+    /* TAG */
+    .tag { font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 4px 10px; border-radius: 100px; }
+
+    /* ============================================================
+       CASE STUDY CARDS
+    ============================================================ */
+    .case-studies {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px 120px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .cs-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      overflow: hidden;
+      transition: border-color 0.3s var(--ease);
+    }
+
+    .cs-card:hover { border-color: var(--border-h); }
+
+    /* Card top: image + title bar */
+    .cs-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 280px;
+    }
+
+    .cs-thumb {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Card-specific thumb backgrounds */
+    #st-cassie .cs-thumb { background: linear-gradient(135deg, #1A1208 0%, #0E0A04 100%); }
+    #likes-ng .cs-thumb { background: linear-gradient(135deg, #080E1A 0%, #060810 100%); }
+    #negoncare .cs-thumb { background: linear-gradient(135deg, #061210 0%, #060E0C 100%); }
+
+    .cs-thumb-glow {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    #st-cassie .cs-thumb-glow { background: radial-gradient(ellipse at 60% 40%, rgba(112,112,255,0.15) 0%, transparent 60%); }
+    #likes-ng .cs-thumb-glow { background: radial-gradient(ellipse at 60% 40%, rgba(59,130,246,0.15) 0%, transparent 60%); }
+    #negoncare .cs-thumb-glow { background: radial-gradient(ellipse at 60% 40%, rgba(16,185,129,0.15) 0%, transparent 60%); }
+
+    .cs-thumb-placeholder {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 32px;
+    }
+
+    .cs-thumb-placeholder svg {
+      width: 48px;
+      height: 48px;
+      color: var(--muted-2);
+      margin-bottom: 12px;
+    }
+
+    .cs-thumb-placeholder p {
+      font-size: 12px;
+      color: var(--muted-2);
+      font-style: italic;
+    }
+
+    .cs-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+    }
+
+    /* Right side of top */
+    .cs-intro {
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .cs-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .cs-client {
+      font-family: var(--ff-display);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 12px;
+    }
+
+    .cs-industry {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 400;
+      margin-bottom: auto;
+    }
+
+    .cs-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 32px;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 10px 20px;
+      color: var(--white-2);
+      font-family: var(--ff-body);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s var(--ease);
+      width: fit-content;
+    }
+
+    .cs-toggle:hover { border-color: var(--gold-ring); color: var(--gold); background: var(--gold-dim); }
+    .cs-toggle.open { background: var(--gold-dim); border-color: var(--gold-ring); color: var(--gold); }
+
+    .cs-toggle svg { width: 14px; height: 14px; transition: transform 0.3s var(--ease); }
+    .cs-toggle.open svg { transform: rotate(180deg); }
+
+    /* Expanded case study details */
+    .cs-detail {
+      display: none;
+      padding: 0 48px 48px;
+      border-top: 1px solid var(--border);
+      margin-top: 0;
+    }
+
+    .cs-detail.open { display: block; }
+
+    .cs-detail-inner {
+      padding-top: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .cs-block-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .cs-block-title {
+      font-family: var(--ff-display);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .cs-block-body {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .cs-deliverables-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 0;
+    }
+
+    .cs-deliverables-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--white-2);
+      line-height: 1.5;
+    }
+
+    .cs-deliverables-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+
+    .cs-results {
+      grid-column: 1 / -1;
+      background: var(--bg-raised);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+    }
+
+    .cs-results-grid {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .cs-result-item {}
+
+    .cs-result-num {
+      font-family: var(--ff-display);
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .cs-result-num span { color: var(--gold); }
+
+    .cs-result-label {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .cs-outcome {
+      font-size: 15px;
+      color: var(--white-2);
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    /* CTA */
+    .work-cta { max-width: 1140px; margin: 0 auto; padding: 0 24px 120px; }
+    .work-cta-inner { background: var(--bg-card); border: 1px solid var(--border); border-radius: 24px; padding: 64px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; position: relative; overflow: hidden; }
+    .work-cta-inner::before { content: ''; position: absolute; top: -50%; right: -10%; width: 400px; height: 400px; background: radial-gradient(ellipse, rgba(112,112,255,0.06) 0%, transparent 65%); pointer-events: none; }
+    .work-cta-text h3 { font-family: var(--ff-display); font-size: clamp(22px, 3vw, 36px); font-weight: 800; letter-spacing: -0.03em; color: var(--white); margin-bottom: 8px; }
+    .work-cta-text p { font-size: 15px; color: var(--muted); }
+
+    /* FOOTER */
+    .footer { border-top: 1px solid var(--border); padding: 32px 24px; }
+    .footer-inner { max-width: 1140px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .footer-logo { font-family: var(--ff-display); font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); text-decoration: none; }
+    .footer-copy { font-size: 13px; color: var(--muted); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .cs-top { grid-template-columns: 1fr; }
+      .cs-thumb { min-height: 220px; }
+      .cs-detail-inner { grid-template-columns: 1fr; gap: 32px; }
+      .cs-results { grid-column: 1; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; } .nav-burger { display: flex; } .nav { width: calc(100% - 32px); }
+      .page-header { padding: 130px 20px 60px; }
+      .case-studies, .work-cta { padding-left: 20px; padding-right: 20px; }
+      .cs-intro, .cs-detail { padding: 28px; }
+      .cs-detail-inner { padding-top: 28px; }
+      .work-cta-inner { padding: 40px 28px; }
+      .footer-inner { justify-content: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo"><img src="assets/images/cropped-macdcreator-logo-white-200x67.png" alt="Macdcreator" style="height:28px;width:auto;display:block;"></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="work.html" class="active">Work</a></li>
+    <li><a href="contact.html" class="nav-cta">Let's Talk</a></li>
+  </ul>
+  <button class="nav-burger" onclick="openMenu()" aria-label="Open navigation menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu" role="dialog">
+  <button class="mobile-close" onclick="closeMenu()" aria-label="Close menu">✕</button>
+  <a href="about.html" onclick="closeMenu()">About</a>
+  <a href="services.html" onclick="closeMenu()">Services</a>
+  <a href="work.html" onclick="closeMenu()">Work</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="page-header-glow"></div>
+  <p class="section-label reveal-left">Selected Work</p>
+  <h1 class="page-heading reveal">Projects that<br><em>made a difference.</em></h1>
+</header>
+
+<!-- CASE STUDIES -->
+<div class="case-studies">
+
+  <!-- ============================
+       CASE STUDY 01: ST.CASSIE
+  ============================= -->
+  <article class="cs-card reveal-scale" id="st-cassie">
+    <div class="cs-top">
+      <div class="cs-thumb">
+        <div class="cs-thumb-glow"></div>
+        <div class="cs-thumb-placeholder">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3 20.25h18M3.75 3h16.5M12 3v10.5"/>
+          </svg>
+          <p>Shopify store screenshot coming soon</p>
+        </div>
+      </div>
+      <div class="cs-intro">
+        <div>
+          <div class="cs-tags">
+            <span class="tag">E-commerce</span>
+            <span class="tag">Shopify</span>
+            <span class="tag">AI Creative</span>
+            <span class="tag">Fashion</span>
+          </div>
+          <h2 class="cs-client">St.Cassie</h2>
+          <p class="cs-industry">Fashion &amp; Retail · Lagos, Nigeria</p>
+        </div>
+        <button class="cs-toggle" onclick="toggleCase('case1')" id="toggle1" aria-expanded="false">
+          Read Case Study
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="cs-detail" id="case1">
+      <div class="cs-detail-inner">
+        <div>
+          <p class="cs-block-label">The Problem</p>
+          <h3 class="cs-block-title">A premium brand with no digital presence — and only phone photos.</h3>
+          <p class="cs-block-body">St.Cassie had no e-commerce presence. Their only product images were raw phone photos — making a premium fashion label look unprofessional and costing them online sales entirely. The brand equity was real. The digital execution wasn't there.</p>
+        </div>
+        <div>
+          <p class="cs-block-label">The Solution</p>
+          <h3 class="cs-block-title">A Shopify store built from scratch, with AI-transformed product visuals.</h3>
+          <p class="cs-block-body">I built their Shopify store from the ground up and used AI to transform raw phone photos into polished, professional product visuals. Launched with fully optimised product listings ready to convert from day one.</p>
+        </div>
+        <div>
+          <p class="cs-block-label">Deliverables</p>
+          <ul class="cs-deliverables-list">
+            <li>Full Shopify store build</li>
+            <li>AI-enhanced product photography (from phone shots)</li>
+            <li>Optimised product listings and copywriting</li>
+            <li>Complete e-commerce launch and handover</li>
+          </ul>
+        </div>
+        <div class="cs-results">
+          <p class="cs-block-label">Result</p>
+          <p class="cs-outcome">"A premium fashion store that looked like it cost 10× more — live and ready to sell."</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============================
+       CASE STUDY 02: LIKES.NG
+  ============================= -->
+  <article class="cs-card reveal-scale" id="likes-ng">
+    <div class="cs-top">
+      <div class="cs-thumb" style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
+        <img src="assets/images/Untitled-design-768x1365.png" alt="likes.ng design 1" style="width:100%;height:100%;object-fit:cover;">
+        <img src="assets/images/Untitled-design1-768x1365.png" alt="likes.ng design 2" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="cs-intro">
+        <div>
+          <div class="cs-tags">
+            <span class="tag">Social Media</span>
+            <span class="tag">Motion Design</span>
+            <span class="tag">Brand System</span>
+          </div>
+          <h2 class="cs-client">likes.ng</h2>
+          <p class="cs-industry">Social Media Agency · Nigeria</p>
+        </div>
+        <button class="cs-toggle" onclick="toggleCase('case2')" id="toggle2" aria-expanded="false">
+          Read Case Study
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="cs-detail" id="case2">
+      <div class="cs-detail-inner">
+        <div>
+          <p class="cs-block-label">The Problem</p>
+          <h3 class="cs-block-title">Inconsistent, static content failing to reflect premium brand positioning.</h3>
+          <p class="cs-block-body">likes.ng had a strong brand positioning but their social content didn't match. Inconsistent static posts failed to capture attention in fast-moving feeds. The content was forgettable — and in social media, forgettable is invisible.</p>
+        </div>
+        <div>
+          <p class="cs-block-label">The Solution</p>
+          <h3 class="cs-block-title">A motion-first design system built to scale and perform.</h3>
+          <p class="cs-block-body">I built a modern, motion-first design system with reusable templates and animated assets — giving the brand a consistent, high-energy visual identity across all platforms. Content that was easy to produce and impossible to ignore.</p>
+        </div>
+        <div>
+          <p class="cs-block-label">Deliverables</p>
+          <ul class="cs-deliverables-list">
+            <li>Motion-first design system</li>
+            <li>Reusable social media templates</li>
+            <li>Animated content assets</li>
+            <li>Ongoing content creation support</li>
+          </ul>
+        </div>
+        <div class="cs-results">
+          <p class="cs-block-label">Results</p>
+          <div class="cs-results-grid">
+            <div class="cs-result-item">
+              <div class="cs-result-num">3<span>×</span></div>
+              <div class="cs-result-label">Increase in engagement</div>
+            </div>
+            <div class="cs-result-item">
+              <div class="cs-result-num">65<span>%</span></div>
+              <div class="cs-result-label">Reduction in content production time</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============================
+       CASE STUDY 03: NEGONCARE
+  ============================= -->
+  <article class="cs-card reveal-scale" id="negoncare">
+    <div class="cs-top">
+      <div class="cs-thumb">
+        <div class="cs-thumb-glow"></div>
+        <div class="cs-thumb-placeholder">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918"/>
+          </svg>
+          <p>Project screenshot coming soon</p>
+        </div>
+      </div>
+      <div class="cs-intro">
+        <div>
+          <div class="cs-tags">
+            <span class="tag">Web Design</span>
+            <span class="tag">React</span>
+            <span class="tag">Healthcare</span>
+          </div>
+          <h2 class="cs-client">Negoncare</h2>
+          <p class="cs-industry">Healthcare · ENT Clinic · Lagos, Nigeria</p>
+        </div>
+        <button class="cs-toggle" onclick="toggleCase('case3')" id="toggle3" aria-expanded="false">
+          Read Case Study
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="cs-detail" id="case3">
+      <div class="cs-detail-inner">
+        <div>
+          <p class="cs-block-label">The Problem</p>
+          <h3 class="cs-block-title">A specialist clinic with no strong digital presence — missing patient trust online.</h3>
+          <p class="cs-block-body">Negoncare, a specialist ENT clinic in Lagos, had no strong digital presence. They were missing the opportunity to build trust with patients online and convert website visitors into booked appointments. In healthcare, trust is the product — and they had no platform to establish it.</p>
+        </div>
+        <div>
+          <p class="cs-block-label">The Solution</p>
+          <h3 class="cs-block-title">Premium web presence with trust-first design and clear patient journeys.</h3>
+          <p class="cs-block-body">I designed and built a premium web presence combining trust-building design language with clear patient journeys — making it easy for visitors to understand the clinic's services and take the next step. Built with React and Tailwind for performance and maintainability.</p>
+        </div>
+        <div>
+          <p class="cs-block-label">Deliverables</p>
+          <ul class="cs-deliverables-list">
+            <li>Full website design (Figma)</li>
+            <li>React + Tailwind CSS implementation</li>
+            <li>Patient journey UX architecture</li>
+            <li>Brand-aligned visual design system</li>
+          </ul>
+        </div>
+        <div class="cs-results">
+          <p class="cs-block-label">Status</p>
+          <p class="cs-outcome">Live — rebuild currently in progress with an improved stack and enhanced patient experience.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<!-- MORE WORK GALLERY -->
+<div style="max-width:1140px;margin:0 auto;padding:0 24px 120px;">
+  <div style="margin-bottom:48px;">
+    <p class="section-label reveal-left">Graphic Design</p>
+    <h2 style="font-family:var(--ff-display);font-size:clamp(28px,4vw,52px);font-weight:800;letter-spacing:-0.03em;line-height:1;color:var(--white);" class="reveal">More of my work</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;" id="galleryGrid">
+    <div class="reveal-scale" style="border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:transform 0.3s,border-color 0.3s;cursor:pointer;" onmouseover="this.style.transform='scale(1.02)';this.style.borderColor='var(--border-h)'" onmouseout="this.style.transform='';this.style.borderColor='var(--border)'">
+      <img src="assets/images/1-1024x1024.png" alt="Graphic design work" loading="lazy" style="width:100%;display:block;aspect-ratio:1;object-fit:cover;">
+    </div>
+    <div class="reveal-scale" style="border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:transform 0.3s,border-color 0.3s;cursor:pointer;" onmouseover="this.style.transform='scale(1.02)';this.style.borderColor='var(--border-h)'" onmouseout="this.style.transform='';this.style.borderColor='var(--border)'">
+      <img src="assets/images/Green-and-White-Healthy-Bowl-Food-Instagram-Post-1024x1024.png" alt="Social media design" loading="lazy" style="width:100%;display:block;aspect-ratio:1;object-fit:cover;">
+    </div>
+    <div class="reveal-scale" style="border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:transform 0.3s,border-color 0.3s;cursor:pointer;" onmouseover="this.style.transform='scale(1.02)';this.style.borderColor='var(--border-h)'" onmouseout="this.style.transform='';this.style.borderColor='var(--border)'">
+      <img src="assets/images/Brown-and-Yellow-New-Menu-Burger-Instagram-Post-2-1024x1024.png" alt="Social media design" loading="lazy" style="width:100%;display:block;aspect-ratio:1;object-fit:cover;">
+    </div>
+    <div class="reveal-scale" style="border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:transform 0.3s,border-color 0.3s;cursor:pointer;" onmouseover="this.style.transform='scale(1.02)';this.style.borderColor='var(--border-h)'" onmouseout="this.style.transform='';this.style.borderColor='var(--border)'">
+      <img src="assets/images/national-selfie-day-post-1024x1024.jpg" alt="Social media design" loading="lazy" style="width:100%;display:block;aspect-ratio:1;object-fit:cover;">
+    </div>
+    <div class="reveal-scale" style="border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:transform 0.3s,border-color 0.3s;cursor:pointer;" onmouseover="this.style.transform='scale(1.02)';this.style.borderColor='var(--border-h)'" onmouseout="this.style.transform='';this.style.borderColor='var(--border)'">
+      <img src="assets/images/Hello-November-2-1024x1024.png" alt="Social media design" loading="lazy" style="width:100%;display:block;aspect-ratio:1;object-fit:cover;">
+    </div>
+    <div class="reveal-scale" style="border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:transform 0.3s,border-color 0.3s;cursor:pointer;" onmouseover="this.style.transform='scale(1.02)';this.style.borderColor='var(--border-h)'" onmouseout="this.style.transform='';this.style.borderColor='var(--border)'">
+      <img src="assets/images/TGIF-1024x1024.png" alt="Social media design" loading="lazy" style="width:100%;display:block;aspect-ratio:1;object-fit:cover;">
+    </div>
+    <div class="reveal-scale" style="border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:transform 0.3s,border-color 0.3s;cursor:pointer;" onmouseover="this.style.transform='scale(1.02)';this.style.borderColor='var(--border-h)'" onmouseout="this.style.transform='';this.style.borderColor='var(--border)'">
+      <img src="assets/images/Lets-Travel-Instagram-Post1-1024x1024.png" alt="Social media design" loading="lazy" style="width:100%;display:block;aspect-ratio:1;object-fit:cover;">
+    </div>
+    <div class="reveal-scale" style="border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:transform 0.3s,border-color 0.3s;cursor:pointer;" onmouseover="this.style.transform='scale(1.02)';this.style.borderColor='var(--border-h)'" onmouseout="this.style.transform='';this.style.borderColor='var(--border)'">
+      <img src="assets/images/STORY-HOTRAC-2-1021x1024.jpg" alt="Social media design" loading="lazy" style="width:100%;display:block;aspect-ratio:1;object-fit:cover;">
+    </div>
+    <div class="reveal-scale" style="border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:transform 0.3s,border-color 0.3s;cursor:pointer;" onmouseover="this.style.transform='scale(1.02)';this.style.borderColor='var(--border-h)'" onmouseout="this.style.transform='';this.style.borderColor='var(--border)'">
+      <img src="assets/images/Reasons-why-you-dont-get-noticed-on-Instagram-1024x1024.png" alt="Social media design" loading="lazy" style="width:100%;display:block;aspect-ratio:1;object-fit:cover;">
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="work-cta">
+  <div class="work-cta-inner reveal-scale">
+    <div class="work-cta-text">
+      <h3>Your project could be next.</h3>
+      <p>Whether you have a brief or just an idea — let's start the conversation.</p>
+    </div>
+    <a href="contact.html" class="btn btn-primary">Start a Project</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">Macdcreator</a>
+    <p class="footer-copy">© 2026 Macdonald Opara. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-scale').forEach((el) => {
+    const siblings = el.parentElement.querySelectorAll('.reveal, .reveal-left, .reveal-scale');
+    let idx = Array.from(siblings).indexOf(el);
+    el.style.transitionDelay = Math.min(idx * 0.07, 0.35) + 's';
+    obs.observe(el);
+  });
+
+  function toggleCase(id) {
+    const detail = document.getElementById(id);
+    const toggleIdx = { case1: 'toggle1', case2: 'toggle2', case3: 'toggle3' }[id];
+    const btn = document.getElementById(toggleIdx);
+    const isOpen = detail.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', isOpen);
+    btn.querySelector('span') && (btn.querySelector('span').textContent = isOpen ? 'Close' : 'Read Case Study');
+    // Update button text node
+    btn.childNodes[0].textContent = isOpen ? 'Close ' : 'Read Case Study ';
+  }
+
+  // Auto-open if URL hash matches
+  const hash = window.location.hash.slice(1);
+  if (hash === 'st-cassie') toggleCase('case1');
+  else if (hash === 'likes-ng') toggleCase('case2');
+  else if (hash === 'negoncare') toggleCase('case3');
+
+  function openMenu() { document.getElementById('mobileMenu').classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow = ''; }
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { document.documentElement.classList.remove('js-ready'); }
+</script>
+</body>
+</html>
+
+

@@ -1,0 +1,615 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Macdcreator</title>
+  <meta name="description" content="Macdonald Opara — a decade of design, the code to back it up. Brand designer and developer based in Lagos, Nigeria.">
+
+  <script>document.documentElement.classList.add('js-ready')</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:           #080808;
+      --bg-raised:    #0E0E0E;
+      --bg-card:      #131313;
+      --bg-card-h:    #181818;
+      --border:       rgba(255,255,255,0.07);
+      --border-h:     rgba(255,255,255,0.14);
+      --gold:         #7070ff;
+      --gold-bright:  #8a8aff;
+      --gold-dim:     rgba(112,112,255,0.12);
+      --gold-ring:    rgba(112,112,255,0.22);
+      --white:        #FFFFFF;
+      --white-2:      #D4D4D4;
+      --muted:        #888888;
+      --muted-2:      #555555;
+      --ff-display:   'Archivo', sans-serif;
+      --ff-body:      'Space Grotesk', sans-serif;
+      --ease:         cubic-bezier(0.4,0,0.2,1);
+      --ease-out:     cubic-bezier(0,0,0.2,1);
+      --ease-spring:  cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--ff-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.5;
+    }
+
+    /* ============================================================ NAV */
+    .nav {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 40px);
+      max-width: 1140px;
+      height: 52px;
+      background: rgba(8,8,8,0.82);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6px 0 22px;
+      z-index: 900;
+      transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+    }
+    .nav.scrolled { border-color: var(--border-h); background: rgba(8,8,8,0.95); }
+    .nav-logo {
+      font-family: var(--ff-display);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links a {
+      font-family: var(--ff-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 7px 15px;
+      border-radius: 100px;
+      transition: color 0.2s var(--ease), background 0.2s var(--ease);
+      white-space: nowrap;
+    }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+    .nav-links a.active { color: var(--white); }
+    .nav-cta {
+      background: var(--gold) !important;
+      color: #fff !important;
+      font-weight: 600 !important;
+      padding: 8px 20px !important;
+      font-size: 13px !important;
+      transition: background 0.2s var(--ease), transform 0.15s var(--ease-spring) !important;
+    }
+    .nav-cta:hover { background: var(--gold-bright) !important; transform: scale(1.03) !important; color: #fff !important; }
+    .nav-burger { display: none; flex-direction: column; gap: 4.5px; background: none; border: none; cursor: pointer; padding: 10px 12px; }
+    .nav-burger span { display: block; width: 20px; height: 1.5px; background: var(--white); border-radius: 2px; transition: all 0.3s var(--ease); }
+
+    /* ============================================================ MOBILE MENU */
+    .mobile-menu {
+      display: none; position: fixed; inset: 0;
+      background: rgba(8,8,8,0.97); backdrop-filter: blur(28px);
+      z-index: 800; flex-direction: column; align-items: center; justify-content: center; gap: 40px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--ff-display);
+      font-size: clamp(36px, 10vw, 64px);
+      font-weight: 800; letter-spacing: -0.03em;
+      color: var(--muted-2); text-decoration: none; transition: color 0.2s var(--ease); line-height: 1;
+    }
+    .mobile-menu a:hover { color: var(--white); }
+    .mobile-close {
+      position: absolute; top: 24px; right: 24px;
+      background: rgba(255,255,255,0.07); border: 1px solid var(--border); border-radius: 100px;
+      color: var(--white); cursor: pointer; width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center; font-size: 18px; transition: background 0.2s;
+    }
+    .mobile-close:hover { background: rgba(255,255,255,0.12); }
+
+    /* ============================================================ REVEALS */
+    .js-ready .reveal {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+    }
+    .js-ready .reveal.visible { opacity: 1; transform: none; }
+    .js-ready .reveal-left {
+      opacity: 0; transform: translateX(-24px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    }
+    .js-ready .reveal-left.visible { opacity: 1; transform: none; }
+    .js-ready .reveal-scale {
+      opacity: 0; transform: scale(0.96);
+      transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    }
+    .js-ready .reveal-scale.visible { opacity: 1; transform: none; }
+
+    /* ============================================================ BUTTONS */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 30px; border-radius: 100px;
+      font-family: var(--ff-body); font-size: 15px; font-weight: 600;
+      text-decoration: none; cursor: pointer; border: none;
+      transition: all 0.2s var(--ease); white-space: nowrap;
+    }
+    .btn-primary {background: var(--gold);color: #fff; }
+    .btn-primary:hover { background: var(--gold-bright); transform: translateY(-2px); box-shadow: 0 12px 32px var(--gold-dim); }
+    .btn-ghost { background: rgba(255,255,255,0.05); color: var(--white); border: 1px solid var(--border); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.09); border-color: var(--border-h); transform: translateY(-2px); }
+
+    /* ============================================================ PAGE HEADER */
+    .page-header {
+      padding: 160px 24px 80px;
+      max-width: 1140px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .page-header-glow {
+      position: absolute;
+      top: 0; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(ellipse, rgba(112,112,255,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .section-label {
+      font-family: var(--ff-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .page-heading {
+      font-family: var(--ff-display);
+      font-size: clamp(42px, 7vw, 96px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      color: var(--white);
+      max-width: 800px;
+    }
+
+    .page-heading em {
+      font-style: italic;
+      color: var(--gold);
+      font-weight: 300;
+    }
+
+    /* ============================================================ ABOUT LAYOUT */
+    .about-layout {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-body p {
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      max-width: 600px;
+    }
+
+    .about-body p strong {
+      color: var(--white-2);
+      font-weight: 600;
+    }
+
+    /* ============================================================ STATS */
+    .stats-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      position: sticky;
+      top: 90px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 24px;
+      transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+    }
+
+    .stat-card:hover { border-color: var(--gold-ring); background: var(--bg-card-h); }
+
+    .stat-num {
+      font-family: var(--ff-display);
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-num span { color: var(--gold); }
+
+    .stat-label {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    /* ============================================================ VALUES */
+    .values-section {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px 120px;
+    }
+
+    .values-header {
+      margin-bottom: 48px;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .value-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 28px;
+      transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+    }
+
+    .value-card:hover { border-color: var(--border-h); background: var(--bg-card-h); }
+
+    .value-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-ring);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: var(--gold);
+    }
+
+    .value-icon svg { width: 22px; height: 22px; }
+
+    .value-title {
+      font-family: var(--ff-display);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .value-body {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ============================================================ TOOLS */
+    .tools-section {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px 120px;
+    }
+
+    .tools-header { margin-bottom: 40px; }
+
+    .tools-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tool-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--white-2);
+      transition: all 0.2s var(--ease);
+    }
+
+    .tool-chip:hover { border-color: var(--gold-ring); color: var(--white); background: var(--bg-card-h); }
+
+    .tool-chip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ============================================================ CTA */
+    .about-cta {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px 120px;
+    }
+
+    .about-cta-inner {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .about-cta-text h3 {
+      font-family: var(--ff-display);
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .about-cta-text p { font-size: 15px; color: var(--muted); }
+
+    /* ============================================================ FOOTER */
+    .footer { border-top: 1px solid var(--border); padding: 32px 24px; }
+    .footer-inner {
+      max-width: 1140px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    }
+    .footer-logo {
+      font-family: var(--ff-display); font-size: 13px; font-weight: 800;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); text-decoration: none;
+    }
+    .footer-copy { font-size: 13px; color: var(--muted); }
+
+    /* ============================================================ RESPONSIVE */
+    @media (max-width: 900px) {
+      .about-layout { grid-template-columns: 1fr; gap: 48px; }
+      .stats-col { position: static; display: grid; grid-template-columns: repeat(3, 1fr); }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+      .nav { width: calc(100% - 32px); }
+      .page-header { padding: 130px 20px 60px; }
+      .about-layout { padding: 0 20px 60px; }
+      .values-section, .tools-section, .about-cta { padding: 0 20px 80px; }
+      .about-cta-inner { padding: 40px 28px; }
+      .footer-inner { justify-content: center; text-align: center; }
+    }
+    @media (max-width: 600px) {
+      .values-grid { grid-template-columns: 1fr; }
+      .stats-col { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo"><img src="assets/images/cropped-macdcreator-logo-white-200x67.png" alt="Macdcreator" style="height:28px;width:auto;display:block;"></a>
+  <ul class="nav-links">
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="contact.html" class="nav-cta">Let's Talk</a></li>
+  </ul>
+  <button class="nav-burger" onclick="openMenu()" aria-label="Open navigation menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu" role="dialog">
+  <button class="mobile-close" onclick="closeMenu()" aria-label="Close menu">✕</button>
+  <a href="about.html" onclick="closeMenu()">About</a>
+  <a href="services.html" onclick="closeMenu()">Services</a>
+  <a href="work.html" onclick="closeMenu()">Work</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="page-header-glow"></div>
+  <p class="section-label reveal-left">About</p>
+  <h1 class="page-heading reveal">
+    Creative by instinct.<br>
+    <em>Technical by choice.</em>
+  </h1>
+</header>
+
+<!-- ABOUT CONTENT -->
+<div class="about-layout">
+  <div class="about-body">
+    <p class="reveal">
+      I'm <strong>Macdonald Opara</strong> — a brand designer, visual creative, and developer based in Lagos. For over a decade I've been shaping brands and crafting visuals that make businesses impossible to ignore.
+    </p>
+    <p class="reveal">
+      Along the way, I learned to code — and now I build the things I design. That's a rare combination. Most designers hand off to developers. Most developers don't care about brand. I sit in the middle, and that's where the best work happens.
+    </p>
+    <p class="reveal">
+      From <strong>Shopify stores</strong> to <strong>SaaS products</strong>, I close the gap between how a brand looks and how it performs. Whether it's an identity system, a motion design package, or a full web build — I bring the same obsessive attention to craft to every project.
+    </p>
+    <p class="reveal">
+      I work with <strong>AI as a core part of my production pipeline</strong> — not as a shortcut, but as a force multiplier that lets me deliver premium results, faster. From AI-enhanced product photography to intelligent design workflows, I use the latest tools to give clients output that used to cost 10× more.
+    </p>
+    <div class="reveal" style="margin-top: 12px;">
+      <a href="work.html" class="btn btn-primary" style="margin-right: 12px;">See My Work</a>
+      <a href="contact.html" class="btn btn-ghost">Get in Touch</a>
+    </div>
+  </div>
+
+  <div class="stats-col">
+    <div class="stat-card reveal-scale">
+      <div class="stat-num">10<span>+</span></div>
+      <div class="stat-label">Years in design &amp; branding</div>
+    </div>
+    <div class="stat-card reveal-scale">
+      <div class="stat-num">5<span>+</span></div>
+      <div class="stat-label">Years building web &amp; digital products</div>
+    </div>
+    <div class="stat-card reveal-scale">
+      <div class="stat-num">3<span>×</span></div>
+      <div class="stat-label">Average engagement uplift for clients</div>
+    </div>
+  </div>
+</div>
+
+<!-- VALUES -->
+<div class="values-section">
+  <div class="values-header">
+    <p class="section-label reveal-left">How I Work</p>
+    <h2 class="page-heading reveal" style="font-size: clamp(30px, 4vw, 52px);">Principles I work by</h2>
+  </div>
+
+  <div class="values-grid">
+    <div class="value-card reveal-scale">
+      <div class="value-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+      </div>
+      <h3 class="value-title">Design with intent</h3>
+      <p class="value-body">Every visual decision has a reason. Good design isn't decoration — it's the clearest possible expression of what a brand is and what it wants from you.</p>
+    </div>
+
+    <div class="value-card reveal-scale">
+      <div class="value-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/>
+        </svg>
+      </div>
+      <h3 class="value-title">Build what I design</h3>
+      <p class="value-body">Closing the gap between design and code means nothing gets lost in translation. What I design is what you get — with no compromise on quality.</p>
+    </div>
+
+    <div class="value-card reveal-scale">
+      <div class="value-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
+        </svg>
+      </div>
+      <h3 class="value-title">AI as a multiplier</h3>
+      <p class="value-body">I use AI tools deliberately — to accelerate production, enhance visuals, and unlock output that simply wasn't possible before without massive budgets.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TOOLS & STACK -->
+<div class="tools-section">
+  <div class="tools-header">
+    <p class="section-label reveal-left">Tools &amp; Stack</p>
+    <h2 class="page-heading reveal" style="font-size: clamp(28px, 3.5vw, 44px);">What I use to get it done</h2>
+  </div>
+
+  <div class="tools-grid">
+    <div class="tool-chip reveal-scale"><span class="tool-chip-dot"></span>Figma</div>
+    <div class="tool-chip reveal-scale"><span class="tool-chip-dot"></span>React</div>
+    <div class="tool-chip reveal-scale"><span class="tool-chip-dot"></span>Tailwind CSS</div>
+    <div class="tool-chip reveal-scale"><span class="tool-chip-dot"></span>Shopify</div>
+    <div class="tool-chip reveal-scale"><span class="tool-chip-dot"></span>Adobe Illustrator</div>
+    <div class="tool-chip reveal-scale"><span class="tool-chip-dot"></span>Adobe Photoshop</div>
+    <div class="tool-chip reveal-scale"><span class="tool-chip-dot"></span>After Effects</div>
+    <div class="tool-chip reveal-scale"><span class="tool-chip-dot"></span>Premiere Pro</div>
+    <div class="tool-chip reveal-scale"><span class="tool-chip-dot"></span>HTML &amp; CSS</div>
+    <div class="tool-chip reveal-scale"><span class="tool-chip-dot"></span>JavaScript</div>
+    <div class="tool-chip reveal-scale"><span class="tool-chip-dot"></span>Claude AI</div>
+    <div class="tool-chip reveal-scale"><span class="tool-chip-dot"></span>Midjourney</div>
+    <div class="tool-chip reveal-scale"><span class="tool-chip-dot"></span>Framer</div>
+    <div class="tool-chip reveal-scale"><span class="tool-chip-dot"></span>WordPress</div>
+    <div class="tool-chip reveal-scale"><span class="tool-chip-dot"></span>Netlify / Vercel</div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="about-cta">
+  <div class="about-cta-inner reveal-scale">
+    <div class="about-cta-text">
+      <h3>Ready to work together?</h3>
+      <p>Let's build something that makes a real difference for your brand.</p>
+    </div>
+    <a href="contact.html" class="btn btn-primary">Start a Project</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">Macdcreator</a>
+    <p class="footer-copy">© 2026 Macdonald Opara. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-scale').forEach((el, i) => {
+    const siblings = el.parentElement.querySelectorAll('.reveal, .reveal-left, .reveal-scale');
+    let idx = Array.from(siblings).indexOf(el);
+    el.style.transitionDelay = Math.min(idx * 0.07, 0.35) + 's';
+    obs.observe(el);
+  });
+
+  function openMenu() { document.getElementById('mobileMenu').classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow = ''; }
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { document.documentElement.classList.remove('js-ready'); }
+</script>
+</body>
+</html>
+
+
