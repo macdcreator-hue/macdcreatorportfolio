@@ -459,8 +459,9 @@
 
     @media (max-width: 900px) {
       .hero { min-height: auto; padding-top: 100px; }
-      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
-      .hero-photo { display: none; }
+      .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .hero-photo { order: -1; }
+      .hero-photo img { height: 400px; }
     }
 
     /* ============================================================
