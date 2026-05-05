@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,10 +8,10 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://macdcreatorportfolio.netlify.app/work.html">
+  <meta property="og:url" content="https://macdcreatorportfolio.macdcreator.workers.dev/work.html">
   <meta property="og:title" content="Work — Macdcreator">
   <meta property="og:description" content="Selected case studies from Macdonald Opara — St.Cassie, likes.ng, and Negoncare.">
-  <meta property="og:image" content="https://macdcreatorportfolio.netlify.app/assets/images/og-image.jpg">
+  <meta property="og:image" content="https://macdcreatorportfolio.macdcreator.workers.dev/assets/images/og-image.jpg">
   <meta property="og:image:alt" content="Macdonald Opara — Brand Designer & Developer">
   <meta property="og:image:width" content="768">
   <meta property="og:image:height" content="1086">
@@ -21,7 +21,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Work — Macdcreator">
   <meta name="twitter:description" content="Selected case studies from Macdonald Opara — St.Cassie, likes.ng, and Negoncare.">
-  <meta name="twitter:image" content="https://macdcreatorportfolio.netlify.app/assets/images/og-image.jpg">
+  <meta name="twitter:image" content="https://macdcreatorportfolio.macdcreator.workers.dev/assets/images/og-image.jpg">
   <meta name="twitter:image:alt" content="Macdonald Opara — Brand Designer & Developer">
 
   <script>document.documentElement.classList.add('js-ready')</script>
@@ -182,9 +182,9 @@
     .cs-thumb img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      position: absolute;
-      inset: 0;
+      object-fit: contain;
+      position: relative;
+      z-index: 1;
     }
 
     /* Right side of top */
@@ -399,7 +399,7 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu" role="dialog">
-  <button class="mobile-close" onclick="closeMenu()" aria-label="Close menu">✕</button>
+  <button class="mobile-close" onclick="closeMenu()" aria-label="Close menu">?</button>
   <a href="about.html" onclick="closeMenu()">About</a>
   <a href="services.html" onclick="closeMenu()">Services</a>
   <a href="work.html" onclick="closeMenu()">Work</a>
@@ -423,12 +423,7 @@
     <div class="cs-top">
       <div class="cs-thumb">
         <div class="cs-thumb-glow"></div>
-        <div class="cs-thumb-placeholder">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3 20.25h18M3.75 3h16.5M12 3v10.5"/>
-          </svg>
-          <p>Shopify store screenshot coming soon</p>
-        </div>
+        <img src="assets/images/stcassie-casestudy1.png" alt="St.Cassie Shopify store — mobile view" loading="lazy" style="max-height:360px;width:auto;">
       </div>
       <div class="cs-intro">
         <div>
@@ -439,7 +434,7 @@
             <span class="tag">Fashion</span>
           </div>
           <h2 class="cs-client">St.Cassie</h2>
-          <p class="cs-industry">Fashion &amp; Retail · Lagos, Nigeria</p>
+          <p class="cs-industry">Fashion &amp; Retail — Lagos, Nigeria</p>
         </div>
         <button class="cs-toggle" onclick="toggleCase('case1')" id="toggle1" aria-expanded="false">
           Read Case Study
@@ -471,7 +466,7 @@
         </div>
         <div class="cs-results">
           <p class="cs-block-label">Result</p>
-          <p class="cs-outcome">"A premium fashion store that looked like it cost 10× more — live and ready to sell."</p>
+          <p class="cs-outcome">"A premium fashion store that looked like it cost 10— more — live and ready to sell."</p>
         </div>
       </div>
     </div>
@@ -494,7 +489,7 @@
             <span class="tag">Brand System</span>
           </div>
           <h2 class="cs-client">likes.ng</h2>
-          <p class="cs-industry">Social Media Agency · Nigeria</p>
+          <p class="cs-industry">Social Media Agency — Nigeria</p>
         </div>
         <button class="cs-toggle" onclick="toggleCase('case2')" id="toggle2" aria-expanded="false">
           Read Case Study
@@ -528,7 +523,7 @@
           <p class="cs-block-label">Results</p>
           <div class="cs-results-grid">
             <div class="cs-result-item">
-              <div class="cs-result-num">3<span>×</span></div>
+              <div class="cs-result-num">3<span>—</span></div>
               <div class="cs-result-label">Increase in engagement</div>
             </div>
             <div class="cs-result-item">
@@ -548,12 +543,7 @@
     <div class="cs-top">
       <div class="cs-thumb">
         <div class="cs-thumb-glow"></div>
-        <div class="cs-thumb-placeholder">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918"/>
-          </svg>
-          <p>Project screenshot coming soon</p>
-        </div>
+        <img src="assets/images/negoncare phone mock up.png" alt="Negoncare website — mobile view" loading="lazy" style="max-height:360px;width:auto;">
       </div>
       <div class="cs-intro">
         <div>
@@ -563,7 +553,7 @@
             <span class="tag">Healthcare</span>
           </div>
           <h2 class="cs-client">Negoncare</h2>
-          <p class="cs-industry">Healthcare · ENT Clinic · Lagos, Nigeria</p>
+          <p class="cs-industry">Healthcare — ENT Clinic — Lagos, Nigeria</p>
         </div>
         <button class="cs-toggle" onclick="toggleCase('case3')" id="toggle3" aria-expanded="false">
           Read Case Study
@@ -655,7 +645,7 @@
 <footer class="footer">
   <div class="footer-inner">
     <a href="index.html" class="footer-logo">Macdcreator</a>
-    <p class="footer-copy">© 2026 Macdonald Opara. All rights reserved.</p>
+    <p class="footer-copy">— 2026 Macdonald Opara. All rights reserved.</p>
   </div>
 </footer>
 
