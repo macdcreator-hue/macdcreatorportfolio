@@ -363,6 +363,34 @@
       font-style: italic;
     }
 
+    /* PRESENTATIONS SECTION */
+    .pres-section { max-width: 1140px; margin: 0 auto; padding: 0 24px 80px; }
+    .pres-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 32px; gap: 24px; flex-wrap: wrap; }
+    .pres-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .pres-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; text-decoration: none; color: inherit; transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease); display: block; }
+    .pres-card:hover { border-color: var(--border-h); transform: translateY(-4px); box-shadow: 0 24px 48px rgba(0,0,0,0.4); }
+    .pres-card.placeholder { cursor: default; }
+    .pres-card.placeholder:hover { transform: none; box-shadow: none; border-color: var(--border); }
+    .pres-thumb { width: 100%; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .pres-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s var(--ease); }
+    .pres-card:hover .pres-thumb img { transform: scale(1.03); }
+    .pres-thumb-glow { position: absolute; inset: 0; pointer-events: none; }
+    .pres-thumb-icon { position: relative; z-index: 1; opacity: 0.25; }
+    .pres-body { padding: 20px 24px 24px; }
+    .pres-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; border: 1px solid; display: inline-block; margin-bottom: 10px; }
+    .pres-tag-deck { color: #8a8aff; border-color: rgba(112,112,255,0.25); background: rgba(112,112,255,0.08); }
+    .pres-tag-brand { color: #fb923c; border-color: rgba(249,115,22,0.25); background: rgba(249,115,22,0.08); }
+    .pres-tag-report { color: #60a5fa; border-color: rgba(59,130,246,0.25); background: rgba(59,130,246,0.08); }
+    .pres-tag-proposal { color: #34d399; border-color: rgba(16,185,129,0.25); background: rgba(16,185,129,0.08); }
+    .pres-tag-infographic { color: #e879f9; border-color: rgba(217,70,239,0.25); background: rgba(217,70,239,0.08); }
+    .pres-title { font-family: var(--ff-display); font-size: 17px; font-weight: 700; letter-spacing: -0.02em; color: var(--white); margin-bottom: 6px; line-height: 1.25; }
+    .pres-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
+    .pres-link { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: var(--gold); text-decoration: none; transition: gap 0.2s var(--ease), color 0.2s; }
+    .pres-link:hover { color: var(--gold-bright); gap: 10px; }
+    .pres-coming { font-size: 12px; color: var(--muted-2); font-style: italic; }
+    @media (max-width: 900px) { .pres-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .pres-grid { grid-template-columns: 1fr; } }
+
     /* CTA */
     .work-cta { max-width: 1140px; margin: 0 auto; padding: 0 24px 120px; }
     .work-cta-inner { background: var(--bg-card); border: 1px solid var(--border); border-radius: 24px; padding: 64px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; position: relative; overflow: hidden; }
@@ -401,13 +429,7 @@
   <ul class="nav-links">
     <li><a href="about.html">About</a></li>
     <li><a href="services.html">Services</a></li>
-    <li class="nav-dropdown">
-      <a href="work.html" class="active">Work</a>
-      <div class="nav-dropdown-menu">
-        <a href="work.html" class="active">Selected Work</a>
-        <a href="creative.html">Creative Work</a>
-      </div>
-    </li>
+    <li><a href="work.html" class="active">Work</a></li>
     <li><a href="contact.html" class="nav-cta">Let's Talk</a></li>
   </ul>
   <button class="nav-burger" onclick="openMenu()" aria-label="Open navigation menu">
@@ -644,6 +666,103 @@
     <div class="reveal-scale" style="border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:transform 0.3s,border-color 0.3s;cursor:pointer;" onmouseover="this.style.transform='scale(1.02)';this.style.borderColor='var(--border-h)'" onmouseout="this.style.transform='';this.style.borderColor='var(--border)'">
       <img src="assets/images/Reasons-why-you-dont-get-noticed-on-Instagram-1024x1024.png" alt="Social media design" loading="lazy" style="width:100%;display:block;aspect-ratio:1;object-fit:cover;">
     </div>
+  </div>
+</div>
+
+<!-- PRESENTATIONS & DOCUMENTS -->
+<div class="pres-section" id="presentations">
+  <div class="pres-header">
+    <div>
+      <p class="section-label reveal-left">Presentations & Documents</p>
+      <h2 class="section-heading reveal">Decks, reports<br>& brand systems.</h2>
+    </div>
+  </div>
+  <div class="pres-grid">
+
+    <!-- CARD: Presentation deck -->
+    <div class="pres-card placeholder reveal-scale">
+      <div class="pres-thumb" style="background:linear-gradient(135deg,#10102A 0%,#0E0E0E 100%);">
+        <div class="pres-thumb-glow" style="background:radial-gradient(ellipse at 60% 30%,rgba(112,112,255,0.2) 0%,transparent 60%);"></div>
+        <svg class="pres-thumb-icon" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <div class="pres-body">
+        <span class="pres-tag pres-tag-deck">Presentation</span>
+        <h3 class="pres-title">Your Presentation Title</h3>
+        <p class="pres-desc">Corporate deck, pitch, or strategy presentation — add your title and link here.</p>
+        <span class="pres-coming">Upload your file to add →</span>
+      </div>
+    </div>
+
+    <!-- CARD: Brand guidelines -->
+    <div class="pres-card placeholder reveal-scale">
+      <div class="pres-thumb" style="background:linear-gradient(135deg,#1A0E0A 0%,#0E0E0E 100%);">
+        <div class="pres-thumb-glow" style="background:radial-gradient(ellipse at 60% 30%,rgba(249,115,22,0.2) 0%,transparent 60%);"></div>
+        <svg class="pres-thumb-icon" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/></svg>
+      </div>
+      <div class="pres-body">
+        <span class="pres-tag pres-tag-brand">Brand Guidelines</span>
+        <h3 class="pres-title">Your Brand Guidelines Title</h3>
+        <p class="pres-desc">Full brand identity system — logo usage, typography, colour palette, tone of voice.</p>
+        <span class="pres-coming">Upload your file to add →</span>
+      </div>
+    </div>
+
+    <!-- CARD: Report -->
+    <div class="pres-card placeholder reveal-scale">
+      <div class="pres-thumb" style="background:linear-gradient(135deg,#0A1525 0%,#0E0E0E 100%);">
+        <div class="pres-thumb-glow" style="background:radial-gradient(ellipse at 60% 30%,rgba(59,130,246,0.2) 0%,transparent 60%);"></div>
+        <svg class="pres-thumb-icon" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6M3 7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/></svg>
+      </div>
+      <div class="pres-body">
+        <span class="pres-tag pres-tag-report">Report</span>
+        <h3 class="pres-title">Your Report Title</h3>
+        <p class="pres-desc">Data report, performance review, or research document with visual storytelling.</p>
+        <span class="pres-coming">Upload your file to add →</span>
+      </div>
+    </div>
+
+    <!-- CARD: Proposal -->
+    <div class="pres-card placeholder reveal-scale">
+      <div class="pres-thumb" style="background:linear-gradient(135deg,#091A14 0%,#0E0E0E 100%);">
+        <div class="pres-thumb-glow" style="background:radial-gradient(ellipse at 60% 30%,rgba(16,185,129,0.2) 0%,transparent 60%);"></div>
+        <svg class="pres-thumb-icon" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+      </div>
+      <div class="pres-body">
+        <span class="pres-tag pres-tag-proposal">Proposal</span>
+        <h3 class="pres-title">Your Proposal Title</h3>
+        <p class="pres-desc">Client-facing project proposal with clear scope, timeline, and visual treatment.</p>
+        <span class="pres-coming">Upload your file to add →</span>
+      </div>
+    </div>
+
+    <!-- CARD: Infographic -->
+    <div class="pres-card placeholder reveal-scale">
+      <div class="pres-thumb" style="background:linear-gradient(135deg,#1A0A18 0%,#0E0E0E 100%);">
+        <div class="pres-thumb-glow" style="background:radial-gradient(ellipse at 60% 30%,rgba(217,70,239,0.2) 0%,transparent 60%);"></div>
+        <svg class="pres-thumb-icon" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
+      </div>
+      <div class="pres-body">
+        <span class="pres-tag pres-tag-infographic">Infographic</span>
+        <h3 class="pres-title">Your Infographic Title</h3>
+        <p class="pres-desc">Data made visual — information design that communicates at a glance.</p>
+        <span class="pres-coming">Upload your file to add →</span>
+      </div>
+    </div>
+
+    <!-- CARD: Presentation 2 -->
+    <div class="pres-card placeholder reveal-scale">
+      <div class="pres-thumb" style="background:linear-gradient(135deg,#10102A 0%,#0E0E0E 100%);">
+        <div class="pres-thumb-glow" style="background:radial-gradient(ellipse at 60% 30%,rgba(112,112,255,0.2) 0%,transparent 60%);"></div>
+        <svg class="pres-thumb-icon" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <div class="pres-body">
+        <span class="pres-tag pres-tag-deck">Presentation</span>
+        <h3 class="pres-title">Your Presentation Title</h3>
+        <p class="pres-desc">Slide deck, keynote, or workshop presentation built in Canva, Google Slides, or PowerPoint.</p>
+        <span class="pres-coming">Upload your file to add →</span>
+      </div>
+    </div>
+
   </div>
 </div>
 
