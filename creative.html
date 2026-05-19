@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Work — Macdcreator</title>
+  <meta name="description" content="Presentations, reports, proposals, brand guidelines and infographics by Macdonald Opara — Brand Designer & Developer based in Lagos.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://macdcreatorportfolio.macdcreator.workers.dev/creative.html">
+  <meta property="og:title" content="Creative Work — Macdcreator">
+  <meta property="og:description" content="Presentations, reports, proposals, brand guidelines and infographics by Macdonald Opara.">
+  <meta property="og:image" content="https://macdcreatorportfolio.macdcreator.workers.dev/assets/images/og-image.jpg">
+  <meta property="og:image:alt" content="Macdonald Opara — Brand Designer & Developer">
+  <meta property="og:image:width" content="768">
+  <meta property="og:image:height" content="1086">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Macdcreator">
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Creative Work — Macdcreator">
+  <meta name="twitter:description" content="Presentations, reports, proposals, brand guidelines and infographics by Macdonald Opara.">
+  <meta name="twitter:image" content="https://macdcreatorportfolio.macdcreator.workers.dev/assets/images/og-image.jpg">
+  <meta name="twitter:image:alt" content="Macdonald Opara — Brand Designer & Developer">
+
+  <script>document.documentElement.classList.add('js-ready')</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:           #080808;
+      --bg-raised:    #0E0E0E;
+      --bg-card:      #131313;
+      --bg-card-h:    #181818;
+      --border:       rgba(255,255,255,0.07);
+      --border-h:     rgba(255,255,255,0.14);
+      --gold:         #7070ff;
+      --gold-bright:  #8a8aff;
+      --gold-dim:     rgba(112,112,255,0.12);
+      --gold-ring:    rgba(112,112,255,0.22);
+      --white:        #FFFFFF;
+      --white-2:      #D4D4D4;
+      --muted:        #888888;
+      --muted-2:      #555555;
+      --ff-display:   'Archivo', sans-serif;
+      --ff-body:      'Space Grotesk', sans-serif;
+      --ease:         cubic-bezier(0.4,0,0.2,1);
+      --ease-out:     cubic-bezier(0,0,0.2,1);
+      --ease-spring:  cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--white); font-family: var(--ff-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1000; opacity: 0.5; }
+
+    /* NAV */
+    .nav { position: fixed; top: 16px; left: 50%; transform: translateX(-50%); width: calc(100% - 40px); max-width: 1140px; height: 52px; background: rgba(8,8,8,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border: 1px solid var(--border); border-radius: 100px; display: flex; align-items: center; justify-content: space-between; padding: 0 6px 0 22px; z-index: 900; transition: border-color 0.3s var(--ease), background 0.3s var(--ease); }
+    .nav.scrolled { border-color: var(--border-h); background: rgba(8,8,8,0.95); }
+    .nav-logo { font-family: var(--ff-display); font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); text-decoration: none; flex-shrink: 0; }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links a { font-family: var(--ff-body); font-size: 14px; font-weight: 400; color: var(--muted); text-decoration: none; padding: 7px 15px; border-radius: 100px; transition: color 0.2s var(--ease), background 0.2s var(--ease); white-space: nowrap; }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+    .nav-links a.active { color: var(--white); }
+    .nav-cta { background: var(--gold) !important; color: #fff !important; font-weight: 600 !important; padding: 8px 20px !important; font-size: 13px !important; transition: background 0.2s var(--ease), transform 0.15s var(--ease-spring) !important; }
+    .nav-cta:hover { background: var(--gold-bright) !important; transform: scale(1.03) !important; color: #fff !important; }
+    .nav-burger { display: none; flex-direction: column; gap: 4.5px; background: none; border: none; cursor: pointer; padding: 10px 12px; }
+    .nav-burger span { display: block; width: 20px; height: 1.5px; background: var(--white); border-radius: 2px; }
+
+    /* NAV DROPDOWN */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 5px; }
+    .nav-dropdown > a::after { content: ''; display: inline-block; width: 5px; height: 5px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg) translateY(-1px); flex-shrink: 0; }
+    .nav-dropdown-menu { position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%) translateY(-6px); background: rgba(10,10,10,0.98); backdrop-filter: blur(24px); border: 1px solid var(--border-h); border-radius: 14px; padding: 6px; min-width: 175px; opacity: 0; pointer-events: none; transition: opacity 0.2s var(--ease), transform 0.2s var(--ease); z-index: 100; }
+    .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+    .nav-dropdown-menu a { display: block; padding: 9px 14px; border-radius: 9px; font-size: 13px; color: var(--muted); text-decoration: none; transition: background 0.15s, color 0.15s; white-space: nowrap; background: none !important; }
+    .nav-dropdown-menu a:hover { background: rgba(255,255,255,0.07) !important; color: var(--white); }
+    .nav-dropdown-menu a.active { color: var(--white); }
+
+    /* MOBILE MENU */
+    .mobile-menu { display: none; position: fixed; inset: 0; background: rgba(8,8,8,0.97); backdrop-filter: blur(28px); z-index: 800; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--ff-display); font-size: clamp(32px, 9vw, 56px); font-weight: 800; letter-spacing: -0.03em; color: var(--muted-2); text-decoration: none; transition: color 0.2s var(--ease); line-height: 1; }
+    .mobile-menu a:hover { color: var(--white); }
+    .mobile-close { position: absolute; top: 24px; right: 24px; background: rgba(255,255,255,0.07); border: 1px solid var(--border); border-radius: 100px; color: var(--white); cursor: pointer; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: background 0.2s; }
+    .mobile-close:hover { background: rgba(255,255,255,0.12); }
+
+    /* REVEALS */
+    .js-ready .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out); }
+    .js-ready .reveal.visible { opacity: 1; transform: none; }
+    .js-ready .reveal-left { opacity: 0; transform: translateX(-24px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); }
+    .js-ready .reveal-left.visible { opacity: 1; transform: none; }
+    .js-ready .reveal-scale { opacity: 0; transform: scale(0.96); transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out); }
+    .js-ready .reveal-scale.visible { opacity: 1; transform: none; }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 30px; border-radius: 100px; font-family: var(--ff-body); font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; border: none; transition: all 0.2s var(--ease); white-space: nowrap; }
+    .btn-primary { background: var(--gold); color: #fff; }
+    .btn-primary:hover { background: var(--gold-bright); transform: translateY(-2px); box-shadow: 0 12px 32px var(--gold-dim); }
+    .btn-ghost { background: rgba(255,255,255,0.05); color: var(--white); border: 1px solid var(--border); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.09); border-color: var(--border-h); transform: translateY(-2px); }
+    .btn-sm { padding: 9px 20px; font-size: 13px; }
+
+    /* SECTION LABEL */
+    .section-label { font-family: var(--ff-body); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+
+    /* PAGE HEADER */
+    .page-header { padding: 160px 24px 64px; max-width: 1140px; margin: 0 auto; position: relative; }
+    .page-header-glow { position: absolute; top: 0; right: -80px; width: 600px; height: 500px; background: radial-gradient(ellipse, rgba(112,112,255,0.07) 0%, transparent 65%); pointer-events: none; }
+    .page-heading { font-family: var(--ff-display); font-size: clamp(42px, 7vw, 96px); font-weight: 800; letter-spacing: -0.04em; line-height: 0.95; color: var(--white); max-width: 800px; }
+    .page-heading em { font-style: italic; color: var(--gold); font-weight: 300; }
+    .page-sub { font-size: 17px; color: var(--muted); max-width: 520px; margin-top: 24px; line-height: 1.7; }
+
+    /* FILTER TABS */
+    .filter-wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px 48px; }
+    .filter-tabs { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .filter-btn { font-family: var(--ff-body); font-size: 13px; font-weight: 500; color: var(--muted); background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 100px; padding: 8px 18px; cursor: pointer; transition: all 0.2s var(--ease); white-space: nowrap; }
+    .filter-btn:hover { color: var(--white); border-color: var(--border-h); background: rgba(255,255,255,0.07); }
+    .filter-btn.active { color: var(--white); background: var(--gold-dim); border-color: var(--gold-ring); }
+
+    /* CREATIVE GRID */
+    .creative-wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px 120px; }
+    .creative-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+    /* CREATIVE CARD */
+    .creative-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease); }
+    .creative-card:hover { border-color: var(--border-h); transform: translateY(-4px); box-shadow: 0 24px 48px rgba(0,0,0,0.4); }
+    .creative-card.hidden { display: none; }
+
+    /* CARD THUMBNAIL */
+    .cc-thumb { width: 100%; aspect-ratio: 4/3; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .cc-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s var(--ease); }
+    .creative-card:hover .cc-thumb img { transform: scale(1.03); }
+    .cc-glow { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+    .cc-icon { position: relative; z-index: 2; opacity: 0.3; }
+
+    /* Category thumb colours */
+    .cc-presentation { background: linear-gradient(135deg, #10102A 0%, #0E0E0E 100%); }
+    .cc-presentation .cc-glow { background: radial-gradient(ellipse at 60% 30%, rgba(112,112,255,0.2) 0%, transparent 60%); }
+    .cc-report { background: linear-gradient(135deg, #0A1525 0%, #0E0E0E 100%); }
+    .cc-report .cc-glow { background: radial-gradient(ellipse at 60% 30%, rgba(59,130,246,0.2) 0%, transparent 60%); }
+    .cc-proposal { background: linear-gradient(135deg, #091A14 0%, #0E0E0E 100%); }
+    .cc-proposal .cc-glow { background: radial-gradient(ellipse at 60% 30%, rgba(16,185,129,0.2) 0%, transparent 60%); }
+    .cc-brand { background: linear-gradient(135deg, #1A0E0A 0%, #0E0E0E 100%); }
+    .cc-brand .cc-glow { background: radial-gradient(ellipse at 60% 30%, rgba(249,115,22,0.2) 0%, transparent 60%); }
+    .cc-infographic { background: linear-gradient(135deg, #1A0A18 0%, #0E0E0E 100%); }
+    .cc-infographic .cc-glow { background: radial-gradient(ellipse at 60% 30%, rgba(217,70,239,0.2) 0%, transparent 60%); }
+
+    /* CARD BODY */
+    .cc-body { padding: 20px 24px 24px; }
+    .cc-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .tag { font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 4px 10px; border-radius: 100px; }
+    .tag-presentation { color: #8a8aff; border-color: rgba(112,112,255,0.2); background: rgba(112,112,255,0.08); }
+    .tag-report { color: #60a5fa; border-color: rgba(59,130,246,0.2); background: rgba(59,130,246,0.08); }
+    .tag-proposal { color: #34d399; border-color: rgba(16,185,129,0.2); background: rgba(16,185,129,0.08); }
+    .tag-brand { color: #fb923c; border-color: rgba(249,115,22,0.2); background: rgba(249,115,22,0.08); }
+    .tag-infographic { color: #e879f9; border-color: rgba(217,70,239,0.2); background: rgba(217,70,239,0.08); }
+    .cc-title { font-family: var(--ff-display); font-size: 17px; font-weight: 700; letter-spacing: -0.02em; color: var(--white); margin-bottom: 6px; line-height: 1.25; }
+    .cc-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 18px; }
+    .cc-link { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: var(--gold); text-decoration: none; transition: gap 0.2s var(--ease), color 0.2s; }
+    .cc-link:hover { color: var(--gold-bright); gap: 10px; }
+
+    /* DIVIDER */
+    .section-divider { border: none; border-top: 1px solid var(--border); max-width: 1140px; margin: 0 auto 80px; }
+
+    /* CTA */
+    .cta-band { background: var(--bg-raised); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 80px 24px; text-align: center; }
+    .cta-band h2 { font-family: var(--ff-display); font-size: clamp(28px, 4vw, 48px); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 12px; }
+    .cta-band p { color: var(--muted); font-size: 16px; margin-bottom: 32px; }
+    .cta-band-btns { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+    /* FOOTER */
+    .footer { max-width: 1140px; margin: 0 auto; padding: 40px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .footer-copy { font-size: 13px; color: var(--muted-2); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 13px; color: var(--muted-2); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) { .creative-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+      .creative-grid { grid-template-columns: 1fr; }
+      .filter-tabs { gap: 6px; }
+      .filter-btn { font-size: 12px; padding: 7px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo"><img src="assets/images/cropped-macdcreator-logo-white-200x67.png" alt="Macdcreator" style="height:28px;width:auto;display:block;"></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li class="nav-dropdown">
+      <a href="work.html">Work</a>
+      <div class="nav-dropdown-menu">
+        <a href="work.html">Selected Work</a>
+        <a href="creative.html" class="active">Creative Work</a>
+      </div>
+    </li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="nav-cta">Let's Talk</a></li>
+  </ul>
+  <button class="nav-burger" onclick="openMenu()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMenu()" aria-label="Close menu">✕</button>
+  <a href="about.html" onclick="closeMenu()">About</a>
+  <a href="work.html" onclick="closeMenu()">Work</a>
+  <a href="creative.html" onclick="closeMenu()">Creative</a>
+  <a href="services.html" onclick="closeMenu()">Services</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="contact.html" onclick="closeMenu()" style="color:var(--gold)">Let's Talk</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-glow"></div>
+  <p class="section-label reveal-left">Creative Work</p>
+  <h1 class="page-heading reveal">Documents &<br><em>presentations</em><br>that deliver.</h1>
+  <p class="page-sub reveal">Decks, reports, proposals, brand guidelines and infographics — the work behind the work.</p>
+</div>
+
+<!-- FILTER TABS -->
+<div class="filter-wrap">
+  <div class="filter-tabs reveal">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="presentation">Presentations</button>
+    <button class="filter-btn" data-filter="report">Reports</button>
+    <button class="filter-btn" data-filter="proposal">Proposals</button>
+    <button class="filter-btn" data-filter="brand">Brand Guidelines</button>
+    <button class="filter-btn" data-filter="infographic">Infographics</button>
+  </div>
+</div>
+
+<!-- CREATIVE GRID -->
+<div class="creative-wrap">
+  <div class="creative-grid" id="creativeGrid">
+
+    <!-- =====================
+         ADD YOUR CARDS BELOW
+         Copy a card block, update:
+         - data-category (presentation / report / proposal / brand / infographic)
+         - cc-thumb class (cc-presentation / cc-report / cc-proposal / cc-brand / cc-infographic)
+         - tag class (tag-presentation / tag-report / tag-proposal / tag-brand / tag-infographic)
+         - tag text, title, description
+         - href on cc-link → your Google Drive or Canva link
+         - Replace <div class="cc-thumb ..."> with <img src="assets/images/..." ...> once you have a cover image
+    ===================== -->
+
+    <!-- CARD: Presentation -->
+    <div class="creative-card reveal-scale" data-category="presentation">
+      <div class="cc-thumb cc-presentation">
+        <div class="cc-glow"></div>
+        <svg class="cc-icon" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <div class="cc-body">
+        <div class="cc-meta"><span class="tag tag-presentation">Presentation</span></div>
+        <h3 class="cc-title">Your Presentation Title</h3>
+        <p class="cc-desc">Brief description of what this deck covers and who it was made for.</p>
+        <a href="#" class="cc-link" target="_blank" rel="noopener">
+          View on Canva
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- CARD: Report -->
+    <div class="creative-card reveal-scale" data-category="report">
+      <div class="cc-thumb cc-report">
+        <div class="cc-glow"></div>
+        <svg class="cc-icon" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6M3 7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/></svg>
+      </div>
+      <div class="cc-body">
+        <div class="cc-meta"><span class="tag tag-report">Report</span></div>
+        <h3 class="cc-title">Your Report Title</h3>
+        <p class="cc-desc">Brief description of the report — scope, client, and key findings.</p>
+        <a href="#" class="cc-link" target="_blank" rel="noopener">
+          View on Google Drive
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- CARD: Proposal -->
+    <div class="creative-card reveal-scale" data-category="proposal">
+      <div class="cc-thumb cc-proposal">
+        <div class="cc-glow"></div>
+        <svg class="cc-icon" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+      </div>
+      <div class="cc-body">
+        <div class="cc-meta"><span class="tag tag-proposal">Proposal</span></div>
+        <h3 class="cc-title">Your Proposal Title</h3>
+        <p class="cc-desc">Brief description of the project scope, client, and proposed solution.</p>
+        <a href="#" class="cc-link" target="_blank" rel="noopener">
+          View on Google Drive
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- CARD: Brand Guidelines -->
+    <div class="creative-card reveal-scale" data-category="brand">
+      <div class="cc-thumb cc-brand">
+        <div class="cc-glow"></div>
+        <svg class="cc-icon" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/></svg>
+      </div>
+      <div class="cc-body">
+        <div class="cc-meta"><span class="tag tag-brand">Brand Guidelines</span></div>
+        <h3 class="cc-title">Your Brand Guidelines Title</h3>
+        <p class="cc-desc">Brief description of the brand, client, and what the guidelines cover.</p>
+        <a href="#" class="cc-link" target="_blank" rel="noopener">
+          View on Canva
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- CARD: Infographic -->
+    <div class="creative-card reveal-scale" data-category="infographic">
+      <div class="cc-thumb cc-infographic">
+        <div class="cc-glow"></div>
+        <svg class="cc-icon" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
+      </div>
+      <div class="cc-body">
+        <div class="cc-meta"><span class="tag tag-infographic">Infographic</span></div>
+        <h3 class="cc-title">Your Infographic Title</h3>
+        <p class="cc-desc">Brief description of the topic, audience, and key information visualised.</p>
+        <a href="#" class="cc-link" target="_blank" rel="noopener">
+          View on Canva
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- CARD: Presentation 2 -->
+    <div class="creative-card reveal-scale" data-category="presentation">
+      <div class="cc-thumb cc-presentation">
+        <div class="cc-glow"></div>
+        <svg class="cc-icon" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <div class="cc-body">
+        <div class="cc-meta"><span class="tag tag-presentation">Presentation</span></div>
+        <h3 class="cc-title">Your Presentation Title</h3>
+        <p class="cc-desc">Brief description of what this deck covers and who it was made for.</p>
+        <a href="#" class="cc-link" target="_blank" rel="noopener">
+          View on Canva
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-band">
+  <h2>Let's make something<br><em style="font-style:italic;color:var(--gold);font-weight:300;">worth showing.</em></h2>
+  <p>Have a project, a pitch, or a brand that needs the right visual treatment?</p>
+  <div class="cta-band-btns">
+    <a href="contact.html" class="btn btn-primary">Start a Project</a>
+    <a href="work.html" class="btn btn-ghost">View Case Studies</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p class="footer-copy">© 2025 Macdcreator. All rights reserved.</p>
+  <nav class="footer-links">
+    <a href="work.html">Work</a>
+    <a href="creative.html">Creative</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</footer>
+
+<script>
+  // NAV SCROLL
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
+
+  // MOBILE MENU
+  function openMenu() { document.getElementById('mobileMenu').classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow = ''; }
+
+  // FILTER
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.creative-card');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      cards.forEach(c => {
+        const show = f === 'all' || c.dataset.category === f;
+        c.classList.toggle('hidden', !show);
+      });
+    });
+  });
+
+  // REVEAL ON SCROLL
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-scale');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 60);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => io.observe(el));
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { document.documentElement.classList.remove('js-ready'); }
+</script>
+</body>
+</html>
